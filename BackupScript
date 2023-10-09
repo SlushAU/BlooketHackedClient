@@ -185,7 +185,7 @@
                         fontWeight: "700",
                         userSelect: "text"
                     },
-                    innerHTML: "GitHub - NotSlush"
+                    innerHTML: "Blooket Hack BETA"
                 }),
                 (controlButtons = createElement("div", {
                     id: "controlButtons",
@@ -296,7 +296,7 @@
                         display: "flex",
                         flexDirection: "column"
                     },
-                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">Cheats</span>"
+                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">GitHub  NotSlush</span>"
                 },
                     createElement("a", {
                         className: "bigButton",
