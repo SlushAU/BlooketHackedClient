@@ -1,13 +1,8 @@
 /**
-* You may not reproduce or distribute any code inside this file without the licenser's permission.
-* You may not copy, modify, steal, skid, or recreate any of the code inside this file.
-* You may not under any circumstance republish any code from this file as your own.
+* @license StewartPrivateLicense-2.0.1
+* Copyright (c) Slushi 2023
 * 
-* ALL TERMS STATED IN THE LINK BELOW APPLY ASWELL
-* Yours Truely Slushi (:
 */
-
-/* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
 (() => {
     const cheat = (async () => {
@@ -185,7 +180,8 @@
                         fontWeight: "700",
                         userSelect: "text"
                     },
-                    innerHTML: "GitHub - NotSlush"
+                    innerHTML: "Blooket Hacks - V1.1",
+                    onclick: () => window.open("https://github.com/NotSlush/Blooket-HackedClient", "_blank").focus()
                 }),
                 (controlButtons = createElement("div", {
                     id: "controlButtons",
@@ -296,7 +292,7 @@
                         display: "flex",
                         flexDirection: "column"
                     },
-                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">Cheats</span>"
+                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">GitHub NotSlush</span>"
                 },
                     createElement("a", {
                         className: "bigButton",
@@ -312,7 +308,7 @@
                             visibility: "visible"
                         },
                         target: "_blank",
-                        href: "https://discord.gg/S4xN6XAx",
+                        href: "https://discord.gg/jHjGrrdXP6",
                         innerHTML: `<div style="background: rgba(0,0,0,.25); border-radius: 5px; display: block; width: 100%; height: 100%; left: 0; top: 0; position: absolute; transform: translateY(2px); width: 100%; transition: transform .6s cubic-bezier(.3,.7,.4,1)"></div>
             <div style="background-color: rgb(11, 194, 207); filter: brightness(.7); position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 5px;"></div>
             <div style="font-weight: 400; background-color: rgb(11, 194, 207); color: white; display: flex; flex-direction: row; align-items: center; justify-content: center; text-align: center; padding: 5px; border-radius: 5px; transform: translateY(-4px); transition: transform .6s cubic-bezier(.3,.7,.4,1)">
@@ -468,7 +464,7 @@
                             const select = document.createElement("select");
                             options.forEach(opt => {
                                 const option = document.createElement("option");
-                                option.value = JSON.stringify(opt?.value || opt);
+                                option.value = JSON.stringify(opt?.value != null ? opt.value : opt);
                                 option.innerHTML = opt?.name || opt;
                                 select.appendChild(option);
                             });
@@ -531,8 +527,8 @@
         const Cheats = {
             global: [
                 {
-                    name: "(Toggle) Auto Answer",
-                    description: "Does you a favour by giving you the answers lmao",
+                    name: "Auto Answer",
+                    description: "Toggles auto answer on",
                     type: "toggle",
                     enabled: false,
                     data: null,
@@ -556,8 +552,8 @@
                     }
                 },
                 {
-                    name: "Highlight Answers (Toggle)",
-                    description: "Does you a even better favour by ,showing you what the answers are lmao",
+                    name: "Highlight Answers",
+                    description: "Toggles highlight answers on",
                     type: "toggle",
                     enabled: false,
                     data: null,
@@ -579,8 +575,31 @@
                     }
                 },
                 {
+                    name: "Subtle Highlight Answers",
+                    description: "Toggles subtle highlight answers on",
+                    type: "toggle",
+                    enabled: false,
+                    data: null,
+                    run: function () {
+                        if (!this.enabled) {
+                            this.enabled = true;
+                            this.data = setInterval(() => {
+                                const { stateNode: { state, props } } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
+                                [...document.querySelectorAll(`[class*="answerContainer"]`)].forEach((answer, i) => {
+                                    if ((state.question || props.client.question).correctAnswers.includes((state.question || props.client.question).answers[i]))
+                                        answer.style.boxShadow = "unset";
+                                });
+                            }, 50);
+                        } else {
+                            this.enabled = false;
+                            clearInterval(this.data);
+                            this.data = null;
+                        }
+                    }
+                },
+                {
                     name: "Auto Answer",
-                    description: "Only use this if you are lazy <3",
+                    description: "Click the correct answer for you",
                     run: function () {
                         const { stateNode: { state: { question, stage, feedback }, props: { client: { question: pquestion } } } } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
                         try {
@@ -592,7 +611,7 @@
                 },
                 {
                     name: "Spam Buy Blooks",
-                    description: "You really dont wanna know what this does xD",
+                    description: "Opens a box an amount of times",
                     inputs: [
                         {
                             name: "Box",
@@ -606,9 +625,23 @@
                         {
                             name: "Amount",
                             type: "number"
+                        },
+                        {
+                            name: "Alert Blooks",
+                            type: "options",
+                            options: [
+                                {
+                                    name: "Alert Blooks",
+                                    value: true
+                                },
+                                {
+                                    name: "Don't Alert Blooks",
+                                    value: false
+                                }
+                            ]
                         }
                     ],
-                    run: function (box, amountToOpen) {
+                    run: function (box, amountToOpen, alertBlooks) {
                         let i = document.createElement('iframe');
                         document.body.append(i);
                         window.alert = i.contentWindow.alert.bind(window);
@@ -628,7 +661,6 @@
                                 return;
                             };
         
-                            let alertBlooks = confirm("Would you like to alert blooks upon unlocking?");
                             let blooks = {};
                             let now = Date.now();
                             let error = false;
@@ -651,8 +683,8 @@
                     }
                 },
                 {
-                    name: "Send Bot Packets",
-                    description: "Floods a game with bots",
+                    name: "Flood Game",
+                    description: "Floods a game with a number of fake accounts",
                     inputs: [
                         {
                             name: "Game ID",
@@ -709,6 +741,27 @@
                             })();
                             await new Promise(r => setTimeout(r, 100));
                         }
+                    }
+                },
+                {
+                    name: "Host Any Gamemode",
+                    description: "Change the selected gamemode on the host settings page",
+                    inputs: [
+                        {
+                            name: "Gamemode",
+                            type: "options",
+                            options: ["Racing", "Classic", "Factory", "Cafe", "Defense2", "Defense", "Royale", "Gold", "Candy", "Brawl", "Hack", "Pirate", "Fish", "Dino", "Toy", "Rush"]
+                        }
+                    ],
+                    run: function (type) {
+                        let i = document.createElement('iframe');
+                        document.body.append(i);
+                        window.alert = i.contentWindow.alert.bind(window);
+                        window.prompt = i.contentWindow.prompt.bind(window);
+                        i.remove();
+                        if (location.pathname != "/host/settings") return alert("Run this script on the host settings page");
+                        const { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
+                        stateNode.setState({ settings: { type } });
                     }
                 },
                 {
@@ -792,6 +845,17 @@
                         [...document.querySelectorAll(`[class*="answerContainer"]`)].forEach((answer, i) => {
                             if ((state.question || props.client.question).correctAnswers.includes((state.question || props.client.question).answers[i])) answer.style.backgroundColor = "rgb(0, 207, 119)";
                             else answer.style.backgroundColor = "rgb(189, 15, 38)";
+                        });
+                    }
+                },
+                {
+                    name: "Subtle Highlight Answers",
+                    description: "Removes the shadow from correct answers",
+                    run: function () {
+                        const { stateNode: { state, props } } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
+                        [...document.querySelectorAll(`[class*="answerContainer"]`)].forEach((answer, i) => {
+                            if ((state.question || props.client.question).correctAnswers.includes((state.question || props.client.question).answers[i]))
+                                answer.style.boxShadow = "unset";
                         });
                     }
                 },
@@ -3817,10 +3881,10 @@
             decode += char;
             if (char == "/" && last == "*") break;
             last = char;
-        }
+        } 
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1696542129455 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1697936106829 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();
