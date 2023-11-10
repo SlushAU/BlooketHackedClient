@@ -180,7 +180,7 @@
                         fontWeight: "700",
                         userSelect: "text"
                     },
-                    innerHTML: "Blooket Hacks - V1.1",
+                    innerHTML: "Blooket Hacks - V1.2 BETA",
                     onclick: () => window.open("https://github.com/NotSlush/Blooket-HackedClient", "_blank").focus()
                 }),
                 (controlButtons = createElement("div", {
@@ -292,7 +292,7 @@
                         display: "flex",
                         flexDirection: "column"
                     },
-                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">GitHub NotSlush</span>"
+                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">Brydina's Blooket Hacks</span>"
                 },
                     createElement("a", {
                         className: "bigButton",
