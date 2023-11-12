@@ -1,7 +1,10 @@
 /**
-* @license StewartPrivateLicense-2.0.1
 * Copyright (c) Slushi 2023
-* 
+* This file has been claimed and legally copyrighted
+* by Slushi (Brydina). DO not reporoduce this or
+* in any case make people think this is yours.
+*
+* © Jordan Copyright Chipping
 */
 
 (() => {
