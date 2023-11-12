@@ -183,7 +183,7 @@
                         fontWeight: "700",
                         userSelect: "text"
                     },
-                    innerHTML: "Blooket Hacks - V1.2 BETA",
+                    innerHTML: "Blooket Hacks - V1.2.2 BETA",
                     onclick: () => window.open("https://github.com/NotSlush/Blooket-HackedClient", "_blank").focus()
                 }),
                 (controlButtons = createElement("div", {
