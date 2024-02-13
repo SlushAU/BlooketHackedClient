@@ -7,7 +7,6 @@
 * © Jordan Copyright Chipping
 */
 
-/* THE UPDATE CHECKER IS ADDED DURING COMMIT PREP, THERE MAY BE REDUNDANT CODE, DO NOT TOUCH */
 
 (() => {
     const cheat = (async () => {
@@ -186,7 +185,7 @@
                         userSelect: "text"
                     },
                     innerHTML: "SkinFade - SlushAU",
-                    onclick: () => window.open("https://github.com/05Konz/Blooket-Cheats", "_blank").focus()
+                    onclick: () => window.open("https://github.com/SlushiAU", "_blank").focus()
                 }),
                 (controlButtons = createElement("div", {
                     id: "controlButtons",
@@ -297,7 +296,7 @@
                         display: "flex",
                         flexDirection: "column"
                     },
-                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">V1.2.4</span>"
+                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">V1.2.5</span>"
                 },
                     createElement("a", {
                         className: "bigButton",
@@ -313,7 +312,7 @@
                             visibility: "visible"
                         },
                         target: "_blank",
-                        href: "https://discord.gg/jHjGrrdXP6",
+                        href: "https://freequizgames.com/?q=gay-test&title=Gay%20Test%20|%20This%20Quiz%20Analyzes%2020%20Factors%20To%20Answer&gad_source=1&gclid=Cj0KCQiAw6yuBhDrARIsACf94RXTjJwvbBV4_A10ED-HykvgET9CVmiPllkK_d6myU_WZSdYffCgmbAaApomEALw_wcB",
                         innerHTML: `<div style="background: rgba(0,0,0,.25); border-radius: 5px; display: block; width: 100%; height: 100%; left: 0; top: 0; position: absolute; transform: translateY(2px); width: 100%; transition: transform .6s cubic-bezier(.3,.7,.4,1)"></div>
             <div style="background-color: rgb(11, 194, 207); filter: brightness(.7); position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 5px;"></div>
             <div style="font-weight: 400; background-color: rgb(11, 194, 207); color: white; display: flex; flex-direction: row; align-items: center; justify-content: center; text-align: center; padding: 5px; border-radius: 5px; transform: translateY(-4px); transition: transform .6s cubic-bezier(.3,.7,.4,1)">
@@ -606,7 +605,7 @@
                 },
                 {
                     name: "Percent Auto Answer",
-                    description: "Answers questions correctly or incorrectly depending on the goal grade given (: BTW (Disable and re-enable to update goal)",
+                    description: "Answers questions correctly or incorrectly depending on the goal grade given (Disable and re-enable to update goal)",
                     inputs: [
                         {
                             name: "Target Grade",
@@ -662,7 +661,7 @@
                 },
                 {
                     name: "Highlight Answers",
-                    description: "Also a personal favourite",
+                    description: "Colors answers to be red or green highlighting the correct ones",
                     run: function () {
                         const { stateNode: { state, props } } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
                         [...document.querySelectorAll(`[class*="answerContainer"]`)].forEach((answer, i) => {
@@ -746,10 +745,10 @@
                 },
                 {
                     name: "Flood Game",
-                    description: "It fills a game with a amount of bots.",
+                    description: "Floods a game with a number of fake accounts",
                     inputs: [
                         {
-                            name: "Input Game ID",
+                            name: "Game ID",
                             type: "string"
                         },
                         {
@@ -833,7 +832,7 @@
                 },
                 {
                     name: "Change Blook Ingame",
-                    description: "Changes your blook (i like the orangutan)",
+                    description: "Changes your blook",
                     inputs: [
                         {
                             name: "Blook",
@@ -898,7 +897,7 @@
                 },
                 {
                     name: "Every Answer Correct",
-                    description: "Sets every answer to be correct loool",
+                    description: "Sets every answer to be correct",
                     run: function () {
                         const { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
                         stateNode.freeQuestions = stateNode.freeQuestions?.map?.(q => ({ ...q, correctAnswers: q.answers }));
@@ -1610,7 +1609,7 @@
                         let { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
         
                         stateNode.props.liveGameController.getDatabaseVal("c", function (val) {
-                            const players = Object.entries(val || {}).reduce((a, [name, c]) => (name == stateNode.props.client.name && a.push({ name, blook: c.b, doubloons: c.d || 0 }), a), []);
+                            const players = Object.entries(val || {}).reduce((a, [name, c]) => (name != stateNode.props.client.name && a.push({ name, blook: c.b, doubloons: c.d || 0 }), a), []);
                             if (players.length === 0) {
                                 stateNode.questionsToAnswer = 1;
                                 return void stateNode.randomQ();
@@ -2894,19 +2893,41 @@
                     }
                 }
             ],
-            racing: [{
-                name: "Instant Win",
-                description: "Instantly Wins the race",
-                run: function () {
-                    const { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
-                    stateNode.setState({ progress: stateNode.state.goalAmount }, () => {
-                        const { state: { question } } = stateNode;
-                        try {
-                            [...document.querySelectorAll(`[class*="answerContainer"]`)][question.answers.map((x, i) => question.correctAnswers.includes(x) ? i : null).filter(x => x != null)[0]]?.click?.();
-                        } catch { }
-                    });
+            racing: [
+                {
+                    name: "Instant Win",
+                    description: "Instantly Wins the race",
+                    run: function () {
+                        const { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
+                        stateNode.setState({ progress: stateNode.state.goalAmount }, () => {
+                            const { state: { question } } = stateNode;
+                            try {
+                                [...document.querySelectorAll(`[class*="answerContainer"]`)][question.answers.map((x, i) => question.correctAnswers.includes(x) ? i : null).filter(x => x != null)[0]]?.click?.();
+                            } catch { }
+                        });
+                    }
+                },
+                {
+                    name: "Set Questions",
+                    description: "Sets the number of questions left",
+                    inputs: [{
+                        name: "Questions",
+                        type: "number"
+                    }],
+                    run: function (progress) {
+                        let { stateNode } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
+                        progress = stateNode.props.client.amount - progress;
+                        stateNode.setState({ progress });
+                        stateNode.props.liveGameController.setVal({
+                            path: "c/".concat(stateNode.props.client.name),
+                            val: {
+                                b: stateNode.props.client.blook,
+                                pr: progress
+                            }
+                        });
+                    }
                 }
-            }],
+            ],
             royale: [
                 {
                     name: "Auto Answer (Toggle)",
@@ -3939,9 +3960,8 @@
             last = char;
         }
         let iframe = document.querySelector("iframe");
-        const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "(.+?)"/);
-        if (parseInt(time) <= 1700863170229 || iframe.contentWindow.confirm(error)) cheat();
+        const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "([\s\S]+?)"/);
+        if (parseInt(time) <= 1707790074490 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();
-
