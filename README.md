@@ -1,4 +1,4 @@
-# Blooket-HackedClient-V1.1
+# Blooket-HackedClient-V1.2.5
 This is a Hacked Client For Blooket
 
 
