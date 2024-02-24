@@ -7,7 +7,6 @@
 * © Jordan Copyright Chipping
 */
 
-
 (() => {
     const cheat = (async () => {
         if (String(Function.prototype.call).includes('native')) {
@@ -185,7 +184,7 @@
                         userSelect: "text"
                     },
                     innerHTML: "SkinFade - SlushAU",
-                    onclick: () => window.open("https://github.com/SlushiAU", "_blank").focus()
+                    onclick: () => window.open("https://github.com/SlushAU", "_blank").focus()
                 }),
                 (controlButtons = createElement("div", {
                     id: "controlButtons",
@@ -296,7 +295,7 @@
                         display: "flex",
                         flexDirection: "column"
                     },
-                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">V1.2.5</span>"
+                    innerHTML: "<span style=\"text-shadow: 1px 1px rgb(0 0 0 / 40%)\">1.2.5</span>"
                 },
                     createElement("a", {
                         className: "bigButton",
@@ -312,7 +311,7 @@
                             visibility: "visible"
                         },
                         target: "_blank",
-                        href: "https://freequizgames.com/?q=gay-test&title=Gay%20Test%20|%20This%20Quiz%20Analyzes%2020%20Factors%20To%20Answer&gad_source=1&gclid=Cj0KCQiAw6yuBhDrARIsACf94RXTjJwvbBV4_A10ED-HykvgET9CVmiPllkK_d6myU_WZSdYffCgmbAaApomEALw_wcB",
+                        href: "lol",
                         innerHTML: `<div style="background: rgba(0,0,0,.25); border-radius: 5px; display: block; width: 100%; height: 100%; left: 0; top: 0; position: absolute; transform: translateY(2px); width: 100%; transition: transform .6s cubic-bezier(.3,.7,.4,1)"></div>
             <div style="background-color: rgb(11, 194, 207); filter: brightness(.7); position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 5px;"></div>
             <div style="font-weight: 400; background-color: rgb(11, 194, 207); color: white; display: flex; flex-direction: row; align-items: center; justify-content: center; text-align: center; padding: 5px; border-radius: 5px; transform: translateY(-4px); transition: transform .6s cubic-bezier(.3,.7,.4,1)">
@@ -534,7 +533,7 @@
             global: [
                 {
                     name: "Auto Answer",
-                    description: "Dont use this if you think that you’re not a lazy hacker!",
+                    description: "Toggles auto answer on",
                     type: "toggle",
                     enabled: false,
                     data: null,
@@ -559,7 +558,7 @@
                 },
                 {
                     name: "Highlight Answers",
-                    description: "This Is My Personal Favourite",
+                    description: "Toggles highlight answers on",
                     type: "toggle",
                     enabled: false,
                     data: null,
@@ -582,7 +581,7 @@
                 },
                 {
                     name: "Subtle Highlight Answers",
-                    description: "This is for you to figure out (:",
+                    description: "Toggles subtle highlight answers on",
                     type: "toggle",
                     enabled: false,
                     data: null,
@@ -649,7 +648,7 @@
                 },
                 {
                     name: "Auto Answer",
-                    description: "I think it is pretty obvious…",
+                    description: "Click the correct answer for you",
                     run: function () {
                         const { stateNode: { state: { question, stage, feedback }, props: { client: { question: pquestion } } } } = Object.values((function react(r = document.querySelector("body>div")) { return Object.values(r)[1]?.children?.[0]?._owner.stateNode ? r : react(r.querySelector(":scope>div")) })())[1].children[0]._owner;
                         try {
@@ -3946,7 +3945,7 @@
         }
     });
     let img = new Image;
-    img.src = "https://raw.githubusercontent.com/05Konz/Blooket-Cheats/main/autoupdate/timestamps/gui.png?" + Date.now();
+    img.src = "https://raw.githubusercontent.com/Sh1N02/Blooket-Cheats/main/autoupdate/timestamps/gui.png?" + Date.now();
     img.crossOrigin = "Anonymous";
     img.onload = function() {
         const c = document.createElement("canvas");
@@ -3961,7 +3960,7 @@
         }
         let iframe = document.querySelector("iframe");
         const [_, time, error] = decode.match(/LastUpdated: (.+?); ErrorMessage: "([\s\S]+?)"/);
-        if (parseInt(time) <= 1707790074490 || iframe.contentWindow.confirm(error)) cheat();
+        if (parseInt(time) <= 1707871479125 || iframe.contentWindow.confirm(error)) cheat();
     }
     img.onerror = img.onabort = () => (img.src = null, cheat());
 })();
